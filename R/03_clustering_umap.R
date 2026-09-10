@@ -36,7 +36,7 @@ clustering_cols <- grep(
 clustered_data <- run.flowsom(
   expression_transformed,
   clustering_cols,
-  meta.k = "auto"
+  meta.k = 4
 )
 
 # ------------------------------------------------------------------------------
