@@ -1,38 +1,46 @@
 # Multiplex Imaging Analysis
 
-A reproducible R workflow for cell-level multiplex tissue imaging analysis, including quality control, intensity transformation, unsupervised clustering, dimensionality reduction, and phenotype annotation.
+A cell-level multiplex tissue imaging analysis workflow demonstrating quality control, preprocessing, unsupervised clustering, dimensionality reduction, and visualization.
 
-## Analysis Workflow
+This repository is a generalized portfolio implementation based on my experience analyzing multiplex tissue imaging data. Synthetic data are used to demonstrate the workflow without exposing study-specific or patient-level information.
 
-1. Cell-level quality control
-2. Expression, spatial coordinate, and metadata preprocessing
-3. Intensity transformation
-4. Unsupervised clustering
-5. Dimensionality reduction
-6. Cell population annotation
-7. Visualization and exploratory analysis
+## Workflow
+
+1. Cell segmentation and segmentation review using QuPath
+2. Cell-level quality control
+3. Expression, spatial coordinate, and metadata preprocessing
+4. Marker intensity transformation
+5. FlowSOM-based unsupervised clustering
+6. UMAP dimensionality reduction
+7. Cluster interpretation and visualization
+
+## Example Output
+
+The figure below shows an example UMAP generated from the synthetic multiplex imaging dataset.
+
+![UMAP clusters](figures/umap_clusters.png)
+
+The synthetic dataset contains simulated cell populations with distinct marker-expression profiles and is intended solely to demonstrate the analysis workflow.
 
 ## My Contribution
 
-- Developed project-specific quality control and preprocessing steps for cell-level imaging data
+- Performed cell segmentation using QuPath
+- Reviewed segmentation-derived morphological features for cell-level quality control
+- Developed project-specific quality-control and preprocessing steps
 - Structured expression, spatial coordinate, and metadata tables for downstream analysis
-- Adapted the Spectre workflow for transformation, FlowSOM clustering, and UMAP visualization
-- Performed cluster interpretation and phenotype annotation based on marker-expression patterns
+- Adapted the Spectre workflow for marker transformation, FlowSOM clustering, and UMAP visualization
+- Interpreted clustering results based on marker-expression patterns
 
-## Tools
+## Repository Structure
 
-- R
-- Spectre
-- FlowSOM
-- UMAP
-- QuPath
-
-## Data Privacy Notice
-
-No patient-level data, identifiers, original tissue images, study-specific marker panels, or unpublished study results are included in this repository.
-
-Any example data or figures provided in this repository are synthetic or generalized representations created solely to demonstrate the analysis workflow.
-
-## References
-
-- Spectre R package: https://github.com/ImmuneDynamics/Spectre
+```text
+multiplex-imaging-analysis/
+├── R/
+│   ├── 00_generate_synthetic_data.R
+│   ├── 01_qc_preprocessing.R
+│   ├── 02_transformation.R
+│   ├── 03_clustering_umap.R
+│   └── 04_annotation_visualization.R
+├── figures/
+│   └── umap_clusters.png
+└── README.md
