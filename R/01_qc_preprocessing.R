@@ -6,15 +6,24 @@
 library(dplyr)
 
 # ------------------------------------------------------------------------------
+# Load synthetic example data
+# ------------------------------------------------------------------------------
+
+raw_data <- read.csv(
+  "example_data/synthetic_cells.csv",
+  check.names = FALSE
+)
+
+# ------------------------------------------------------------------------------
 # Quality control
 # ------------------------------------------------------------------------------
 
-# Thresholds should be determined empirically from segmentation characteristics
-# and the biological context of the dataset.
+# Example thresholds are illustrative only and do not represent
+# the original study-specific QC settings.
 
-lower_area_threshold <- NA_real_
-upper_area_threshold <- NA_real_
-qc_marker_threshold  <- NA_real_
+lower_area_threshold <- 40
+upper_area_threshold <- 400
+qc_marker_threshold  <- 0
 
 qc_data <- raw_data %>%
   filter(
@@ -22,7 +31,6 @@ qc_data <- raw_data %>%
     cell_area <= upper_area_threshold,
     qc_marker >= qc_marker_threshold
   )
-
 
 # ------------------------------------------------------------------------------
 # Organize data for downstream analysis
